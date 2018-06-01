@@ -2,11 +2,11 @@
 
 @section('content')
 
-    <h1>id: {{ $tasklist->id }} のメッセージ編集ページ</h1>
+    <h1>id: {{ $tasklist->id }} のタスク編集ページ</h1>
 
     {!! Form::model($tasklist, ['route' => ['tasklists.update', $tasklist->id], 'method' => 'put']) !!}
 
-        {!! Form::label('content', 'メッセージ:') !!}
+        {!! Form::label('content', 'タスク一覧:') !!}
         {!! Form::text('content') !!}
 
         {!! Form::submit('更新') !!}

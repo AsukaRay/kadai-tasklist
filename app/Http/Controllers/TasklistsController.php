@@ -29,7 +29,7 @@ class TasklistsController extends Controller
     {
         $tasklist = new Tasklist;
 
-        return view('tasklist.create', [
+        return view('tasklists.create', [
             'tasklist' => $tasklist,
         ]);
     }
@@ -50,7 +50,7 @@ class TasklistsController extends Controller
         $tasklist = Tasklist::find($id);
 
         return view('tasklists.show', [
-            'Tasklist' => $tasklist,
+            'tasklist' => $tasklist,
         ]);
     }
 
@@ -65,10 +65,10 @@ class TasklistsController extends Controller
         ]);
     }
 
-    // "Update process" when `messages/id` are accessed by PUT or PATCH
+    // "Update process" when `s/id` are accessed by PUT or PATCH
    public function update(Request $request, $id)
     {
-        $tasklist = Tasklists::find($id);
+        $tasklist = Tasklist::find($id);
         $tasklist->content = $request->content;
         $tasklist->save();
 
@@ -78,7 +78,7 @@ class TasklistsController extends Controller
     // "Delete processing" when `messages/id` is accessed by DELETE
      public function destroy($id)
     {
-        $tasklist = Message::find($id);
+        $tasklist = Tasklist::find($id);
         $tasklist->delete();
 
         return redirect('/');
