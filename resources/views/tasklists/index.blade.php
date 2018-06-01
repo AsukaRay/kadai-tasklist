@@ -11,6 +11,6 @@
  @endforeach
         </ul>
     @endif
-    {!! link_to_route('tasklists.create', 'タスク一覧') !!}
+    {!! link_to_route('tasklists.create', 'タスク新規作成') !!}
 
 @endsection
