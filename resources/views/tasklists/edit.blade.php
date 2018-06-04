@@ -9,7 +9,7 @@
         {!! Form::label('status', 'ステータス:') !!}
         {!! Form::text('status') !!}
 
-        {!! Form::label('content', 'タスク一覧:') !!}
+        {!! Form::label('content', 'タスク:') !!}
         {!! Form::text('content') !!}
 
         {!! Form::submit('追加') !!}

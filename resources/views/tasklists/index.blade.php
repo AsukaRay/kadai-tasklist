@@ -8,9 +8,10 @@
         <ul>
              @foreach ($tasklists as $tasklist)
                 <li>{!! link_to_route('tasklists.show', $tasklist->id, ['id' => $tasklist->id]) !!} : {{ $tasklist->content }}</li>
- @endforeach
+         @endforeach
         </ul>
     @endif
+    
     {!! link_to_route('tasklists.create', 'タスク新規作成') !!}
 
 @endsection

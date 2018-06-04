@@ -7,7 +7,6 @@
 
     <body>
         @include('commons.error_tasklists')
-
         @yield('content')
     </body>
 </html>
