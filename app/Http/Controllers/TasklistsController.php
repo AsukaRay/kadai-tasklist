@@ -35,14 +35,24 @@ class TasklistsController extends Controller
     }
 
     // "New registration processing" when `messages/` is accessed by POST
-   public function store(Request $request)
+public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|max:191',   // add
+            'content' => 'required|max:191',
+            'status' => 'required|max:10',
+        ]);
+
+
         $tasklist = new Tasklist;
+        $tasklist->title = $request->title;    // add
         $tasklist->content = $request->content;
         $tasklist->save();
 
+
         return redirect('/');
     }
+
 
     // "Acquisition display process" when accessing `messages/id` with GET
     public function show($id)
@@ -66,15 +76,19 @@ class TasklistsController extends Controller
     }
 
     // "Update process" when `s/id` are accessed by PUT or PATCH
-   public function update(Request $request, $id)
+public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'content' => 'required|max:191',
+            'status' => 'required|max:10'
+        ]);
+
         $tasklist = Tasklist::find($id);
         $tasklist->content = $request->content;
         $tasklist->save();
 
         return redirect('/');
     }
-
     // "Delete processing" when `messages/id` is accessed by DELETE
      public function destroy($id)
     {
