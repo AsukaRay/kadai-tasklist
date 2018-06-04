@@ -4,9 +4,10 @@
 
     <h1>id = {{ $tasklist->id }} のタスク詳細ページ</h1>
 
-    <p>{{ $tasklist->content }}</p>
+    <p>タイトル: {{ $tasklist->status }}</p>
+    <p>メッセージ: {{ $tasklist->content }}</p>
 
-    {!! link_to_route('tasklists.edit', 'このタスク編集', ['id' => $tasklist->id]) !!}
+    {!! link_to_route('tasklists.edit', 'このタスクリスト編集', ['id' => $tasklist->id]) !!}
 
     {!! Form::model($tasklist, ['route' => ['tasklists.destroy', $tasklist->id], 'method' => 'delete']) !!}
         {!! Form::submit('削除') !!}
