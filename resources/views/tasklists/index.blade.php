@@ -5,26 +5,33 @@
 <h1>タスク一覧</h1>
 
 
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
   @if (count($tasklists) > 0)
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>タイトル</th>
-                    <th>メッセージ</th>
+                    <th>ステータス</th>
+                    <th>タスク</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($tasklists as $tasklist)
                     <tr>
                         <td>{!! link_to_route('tasklists.show', $tasklist->id, ['id' => $tasklist->id]) !!}</td>
-                        <td>{{ $tasklist->title }}</td>
+                        <td>{{ $tasklist->status }}</td>
                         <td>{{ $tasklist->content }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     @endif
-    {!! link_to_route('tasklists.create', '新規メッセージの投稿', null, ['class' => 'btn btn-primary']) !!}
+    {!! link_to_route('tasklists.create', '新規ステータスの投稿', null, ['class' => 'btn btn-primary']) !!}
     
     @endsection
